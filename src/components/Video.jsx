@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import { MdVerified } from "react-icons/md";
 
-const Video = ({ title, channel, views, time, verified }) => {
+const Video = ({ title, channel, views, time, verified, imgId }) => {
   return (
     <>
-      <div className="h-[210px] bg-black w-[260px] flex justify-center items-center rounded-lg ml-2 mr-2">
+      <div className="h-[200px] bg-black w-[252px] flex justify-center items-center rounded-lg ml-2 mr-2">
         <div className="w-[254px] h-[200px]">
           <img
             className="rounded-lg"
-            src="https://loremflickr.com/253/142"
+            src={`https://loremflickr.com/253/142?random=${imgId}`}
             alt="Pussy Cat"
           />
           <div className="flex pt-2">
@@ -16,7 +16,7 @@ const Video = ({ title, channel, views, time, verified }) => {
               {/* Image */}
               <img
                 className="rounded-full"
-                src="https://placebeard.it/33/32"
+                src={`https://placebeard.it/33/32?random=${imgId}`}
                 alt="Profile Image"
               />
             </div>
@@ -28,18 +28,14 @@ const Video = ({ title, channel, views, time, verified }) => {
                   {title}
                 </span>
                 <span className="flex text-gray-400 text-[11px] font-semibold">
-                  {verified ? (
-                    <span className="flex text-gray-400 text-[11px] font-semibold justify-center text-center items-center">
-                      {channel}
+                  <span className="flex text-gray-400 text-[11px] font-semibold justify-center text-center items-center">
+                    {channel}
+                    {verified && (
                       <span className="ml-1">
                         <MdVerified />
                       </span>
-                    </span>
-                  ) : (
-                    <span className="flex text-gray-400 text-[11px] font-semibold justify-center text-center items-center">
-                      {channel}
-                    </span>
-                  )}
+                    )}
+                  </span>
                 </span>
               </span>
               <span className="flex">
@@ -63,7 +59,8 @@ Video.propTypes = {
   channel: PropTypes.string.isRequired,
   views: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
-  verified: PropTypes.string.isRequired,
+  verified: PropTypes.bool.isRequired,
+  imgId: PropTypes.number.isRequired,
 };
 
 export default Video;

@@ -1,20 +1,24 @@
 import Video from "./components/Video.jsx";
+import videos from "./data/Data.jsx";
 import "./index.css"; //This is mandatory to implement
 
 function App() {
-  let obj = {
-    title: "A latest React.js tutorial",
-    channel: "Let`s Code In",
-    views: "2.5M",
-    time: "1 year ago",
-    verified: false,
-  };
-
   return (
     <>
       <div>YOUTUBE</div>
       <div className="flex">
-        <Video {...obj} />
+        {videos.map((video, index) => (
+          <Video
+            key={index}
+            imgId={index}
+            title={video.title}
+            channel={video.channel}
+            views={video.views}
+            time={video.time}
+            verified={video.verified}
+          />
+        ))}
+        {/* 
         <Video
           title={"A latest Node.js tutorial"}
           channel={"Let`s Eco In"}
@@ -35,7 +39,7 @@ function App() {
           views={"100k"}
           time={"3 months ago"}
           verified={false}
-        />
+        /> */}
       </div>
     </>
   );
