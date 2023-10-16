@@ -1,3 +1,4 @@
+import Counter from "./components/Counter.jsx";
 import PlayButton from "./components/PlayButton.jsx";
 import Video from "./components/Video.jsx";
 import videos from "./data/Data.jsx";
@@ -26,13 +27,12 @@ function App() {
                 onPause={() => {
                   console.log("PAUSE", video.title);
                 }}
-              >
-                PLAY
-              </PlayButton>
+              ></PlayButton>
             }
           </Video>
         ))}
       </div>
+      <Counter />
     </>
   );
 }

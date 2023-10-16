@@ -19,7 +19,8 @@ const PlayButton = ({ children, onPlay, onPause }) => {
         className="h-8 w-20 text-black bg-white border-black border-2 rounded-md hover:transition hover:shadow-slate-950 hover:shadow-sm"
         onClick={handleClick}
       >
-        {children} : {playing ? ">" : "||"}
+        {children}
+        {playing ? "PAUSE ▶️" : "PLAY ⏸️"}
       </button>
     </div>
   );
