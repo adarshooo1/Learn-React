@@ -1,3 +1,4 @@
+import PlayButton from "./components/PlayButton.jsx";
 import Video from "./components/Video.jsx";
 import videos from "./data/Data.jsx";
 import "./index.css"; //This is mandatory to implement
@@ -16,30 +17,21 @@ function App() {
             views={video.views}
             time={video.time}
             verified={video.verified}
-          />
+          >
+            {
+              <PlayButton
+                onPlay={() => {
+                  console.log("PLAY", video.title);
+                }}
+                onPause={() => {
+                  console.log("PAUSE", video.title);
+                }}
+              >
+                PLAY
+              </PlayButton>
+            }
+          </Video>
         ))}
-        {/* 
-        <Video
-          title={"A latest Node.js tutorial"}
-          channel={"Let`s Eco In"}
-          views={"2.5K"}
-          time={"2 months ago"}
-          verified={true}
-        />
-        <Video
-          title={"A latest Express.js tutorial"}
-          channel={"Let`s Sword In"}
-          views={"21M"}
-          time={"1 day ago"}
-          verified={true}
-        />
-        <Video
-          title={"A latest MongoDB. tutorial"}
-          channel={"MongoDB.ORG Classes"}
-          views={"100k"}
-          time={"3 months ago"}
-          verified={false}
-        /> */}
       </div>
     </>
   );
