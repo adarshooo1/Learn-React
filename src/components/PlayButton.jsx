@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 const PlayButton = ({ children, onPlay, onPause }) => {
+  console.log("Render Play-Button");
   let [playing, setPlaying] = useState(false);
   function handleClick(e) {
     e.stopPropagation(); //Helping is manage event-propagation/event-bubbling

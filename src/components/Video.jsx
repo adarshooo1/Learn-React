@@ -2,6 +2,7 @@
 import { MdVerified } from "react-icons/md";
 
 const Video = ({ title, channel, views, time, verified, imgId, children }) => {
+  console.log("Render Video");
   return (
     <>
       <div className="flex flex-col">
@@ -56,6 +57,5 @@ const Video = ({ title, channel, views, time, verified, imgId, children }) => {
     </>
   );
 };
-
 
 export default Video;

@@ -2,45 +2,40 @@
 import React, { useState } from "react";
 
 const Counter = () => {
-  const [like, setLike] = useState(false);
+  console.log("Render Counter");
   const [count, setCount] = useState(0);
 
-  //   Like and Dislike
-  function handleClick(e) {
+  //   Count
+  function handleCountChange(num, e) {
     e.stopPropagation();
-    if (!like) {
-      setLike(true);
-      console.log("Like");
-    } else {
-      setLike(false);
-      console.log("Dislike");
-    }
+    setCount((prevCount) => prevCount + num);
+    // console.log(count);
   }
 
-  //   Count
-  function handleCount(e) {
-    e.stopPropagation();
-    console.log(count);
-    setTimeout(() => {
-      setCount((count) => count + 1);
-    }, 0);
-  }
+  // Log count outside the handleCountChange function
+  console.log(count);
+
   return (
     <div>
-      <button
-        className={`${
-          like ? "bg-red-600" : "bg-white"
-        } border-black border-2 ml-4 rounded-md w-[80px] h-[40px]`}
-        onClick={handleClick}
-      >
-        {!like ? "LIKE" : "DISLIKE"}
-      </button>
-      <button
-        className="bg-slate-500 border-black border-2 ml-4 rounded-md w-[80px] h-[40px]"
-        onClick={handleCount}
-      >
-        {count}
-      </button>
+      <div className="flex items-center my-3">
+        <button
+          className="text-center h-7 w-7 justify-center mx-4 border-[2px] rounded-lg border-black"
+          onClick={(e) => handleCountChange(-1, e)}
+        >
+          {" "}
+          -{" "}
+        </button>
+        <div className="bg-slate-300 text-center border-black border-2 rounded-md w-[80px] h-[40px] font-bold text-2xl">
+          {count}
+        </div>
+        <button
+          className="text-center h-7 w-7 justify-center mx-4 border-[2px] rounded-lg border-black"
+          onClick={(e) => handleCountChange(1, e)}
+        >
+          {" "}
+          +{" "}
+        </button>
+      </div>
     </div>
   );
 };
