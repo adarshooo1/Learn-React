@@ -3,15 +3,20 @@ import { useState } from "react";
 function AddVideo({ addVideo }) {
   console.log("Render Add Video");
 
-  const [videos, setVideos] = useState({
+  const initialState = {
+    title: "",
+    channel: "",
     views: "2k",
     time: "1 min ago",
     verified: true,
-  });
+  };
+
+  const [videos, setVideos] = useState(initialState);
 
   function handleSubmit(e) {
     e.preventDefault();
     addVideo(videos);
+    setVideos(initialState);
   }
 
   function handleChange(e) {
@@ -29,6 +34,7 @@ function AddVideo({ addVideo }) {
           name="title"
           onChange={handleChange}
           placeholder="title"
+          value={videos.title}
         />
         <input
           className="bg-slate-400 h-6 w-64 font-sans font-semibold text-black placeholder-black"
@@ -37,6 +43,7 @@ function AddVideo({ addVideo }) {
           required
           onChange={handleChange}
           placeholder="channel"
+          value={videos.channel}
         />
         <button
           className="bg-black w-40 text-white border-red-700 border-[1px]"

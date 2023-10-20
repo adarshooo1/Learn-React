@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { MdVerified } from "react-icons/md";
 
 const Video = ({ title, channel, views, time, verified, imgId, children }) => {
