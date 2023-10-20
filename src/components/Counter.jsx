@@ -2,18 +2,14 @@
 import React, { useState } from "react";
 
 const Counter = () => {
-  console.log("Render Counter");
+  console.log("Counter")
   const [count, setCount] = useState(0);
 
   //   Count
   function handleCountChange(num, e) {
     e.stopPropagation();
     setCount((prevCount) => prevCount + num);
-    // console.log(count);
   }
-
-  // Log count outside the handleCountChange function
-  console.log(count);
 
   return (
     <div>
