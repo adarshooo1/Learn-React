@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function AddVideo({ addVideo, editableVideo }) {
+function AddVideo({ addVideo, updateVideo, editableVideo }) {
   const initialState = {
     title: "",
     channel: "",
@@ -19,7 +19,11 @@ function AddVideo({ addVideo, editableVideo }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addVideo(videos);
+    if (editableVideo) {
+      updateVideo(videos);
+    } else {
+      addVideo(videos);
+    }
     setVideos(initialState);
   }
 
@@ -80,7 +84,7 @@ function AddVideo({ addVideo, editableVideo }) {
           type="submit"
           onClick={handleSubmit}
         >
-          Add
+          {editableVideo ? "Edit" : "Add"}
         </button>
       </form>
     </div>

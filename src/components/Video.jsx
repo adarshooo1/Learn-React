@@ -65,12 +65,12 @@ const Video = ({
                     </span>
                   </span>
                 </div>
-                <span className="flex">
-                  <span className="text-gray-400 text-[11px] font-semi-bold">
+                <span className="flex w-max">
+                  <span className="text-gray-400 text-[11px] font-semi-bold w-max">
                     {views} views
                   </span>
-                  <span className="text-gray-400 text-[11px] font-semi-bold ml-2 flex justify-center">
-                    <span className="mr-[1px]">•</span> {time}
+                  <span className="text-gray-400 text-[11px] font-semi-bold ml-2 flex justify-center w-max">
+                    <span className="mr-[1px] w-max">•</span> {time}
                   </span>
                 </span>
               </div>

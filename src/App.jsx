@@ -24,6 +24,14 @@ function App() {
     setEdit(videos.find((video) => video.id === id));
   }
 
+  function updateVideo(video) {
+    const index = videos.findIndex((vdo) => vdo.id === video.id);
+    const newVideo = [...videos];
+    newVideo.splice(index, 1, video);
+    console.log(newVideo);
+    setVideos(newVideo);
+  }
+
   return (
     <>
       <div>YOUTUBE</div>
@@ -33,7 +41,11 @@ function App() {
           deleteVideo={deleteVideo}
           videos={videos}
         />
-        <AddVideo addVideo={addVideo} editableVideo={edit} />
+        <AddVideo
+          addVideo={addVideo}
+          updateVideo={updateVideo}
+          editableVideo={edit}
+        />
       </div>
       <Counter />
     </>
