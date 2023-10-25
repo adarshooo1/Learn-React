@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function AddVideo({ addVideo }) {
+function AddVideo({ addVideo, editableVideo }) {
   const initialState = {
     title: "",
     channel: "",
@@ -16,7 +16,7 @@ function AddVideo({ addVideo }) {
     setVideos({ ...videos, verified: !videos.verified });
     console.log(videos.verified ? "verified" : "unverified");
   }
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     addVideo(videos);
@@ -28,6 +28,13 @@ function AddVideo({ addVideo }) {
     setVideos({ ...videos, [e.target.name]: e.target.value });
     console.log(e.target.name, e.target.value);
   }
+
+  useEffect(() => {
+    // console.log(edit);
+    if (editableVideo) {
+      setVideos(editableVideo);
+    }
+  }, [editableVideo]);
 
   return (
     <div>

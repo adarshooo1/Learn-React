@@ -9,6 +9,7 @@ const Video = ({
   verified,
   children,
   deleteVideo,
+  editVideo,
 }) => {
   console.log("Render Video");
 
@@ -20,7 +21,7 @@ const Video = ({
             <div className="relative top-0">
               <button
                 className="absolute font-extrabold bg-gray-600 text-white w-8 h-8 rounded-full top-2 right-12"
-                onClick={() => deleteVideo(id)}
+                onClick={() => editVideo(id)}
               >
                 ✏️
               </button>
@@ -49,7 +50,7 @@ const Video = ({
 
               {/* Description */}
               <div className="absolute left-[54px]">
-                <div className="flex flex-col w-auto">
+                <div className="flex flex-col w-max">
                   <span className="font-bold text-xs text-white w-max">
                     {title}
                   </span>

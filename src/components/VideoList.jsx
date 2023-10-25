@@ -2,7 +2,7 @@ import PlayButton from "./PlayButton";
 import Like from "./Like";
 import Video from "./Video";
 
-function VideoList({ videos, deleteVideo }) {
+function VideoList({ videos, deleteVideo, editVideo }) {
   return (
     <div className="w-full">
       <div className="flex w-full">
@@ -16,6 +16,7 @@ function VideoList({ videos, deleteVideo }) {
             time={video.time}
             verified={video.verified}
             deleteVideo={deleteVideo}
+            editVideo={editVideo}
           >
             {
               <PlayButton
