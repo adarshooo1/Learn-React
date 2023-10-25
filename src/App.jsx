@@ -9,15 +9,20 @@ function App() {
   console.log("Render App");
   const [videos, setVideos] = useState(videosData);
 
-  function  addVideo(video) {
+  function addVideo(video) {
     setVideos([...videos, video]);
   }
 
-  return (    
+  function deleteVideo(id) {
+    setVideos(videos.filter((video) => video.id !== id));
+    console.log(videos.keys);
+  }
+
+  return (
     <>
       <div>YOUTUBE</div>
-      <div>
-        <VideoList videos={videos} />
+      <div className="w-full">
+        <VideoList deleteVideo={deleteVideo} videos={videos} />
         <AddVideo addVideo={addVideo} />
       </div>
       <Counter />

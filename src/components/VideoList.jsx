@@ -2,19 +2,20 @@ import PlayButton from "./PlayButton";
 import Like from "./Like";
 import Video from "./Video";
 
-function VideoList({ videos }) {
+function VideoList({ videos, deleteVideo }) {
   return (
-    <div>
-      <div className="flex">
+    <div className="w-full">
+      <div className="flex w-full">
         {videos.map((video, index) => (
           <Video
             key={index}
-            imgId={index}
+            id={video.id}
             title={video.title}
             channel={video.channel}
             views={video.views}
             time={video.time}
             verified={video.verified}
+            deleteVideo={deleteVideo}
           >
             {
               <PlayButton

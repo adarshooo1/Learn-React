@@ -1,18 +1,22 @@
 import { useState } from "react";
 
 function AddVideo({ addVideo }) {
-  console.log("Render Add Video");
-
   const initialState = {
     title: "",
     channel: "",
-    views: "2k",
+    views: "",
     time: "1 min ago",
-    verified: true,
+    verified: false, // Initialize it as false
   };
 
   const [videos, setVideos] = useState(initialState);
 
+  function handleVerified(e) {
+    e.stopPropagation();
+    setVideos({ ...videos, verified: !videos.verified });
+    console.log(videos.verified ? "verified" : "unverified");
+  }
+  
   function handleSubmit(e) {
     e.preventDefault();
     addVideo(videos);
@@ -45,6 +49,25 @@ function AddVideo({ addVideo }) {
           placeholder="channel"
           value={videos.channel}
         />
+        <input
+          className="bg-slate-400 h-6 w-64 font-sans font-semibold text-black placeholder-black"
+          type="text"
+          name="views"
+          required
+          onChange={handleChange}
+          placeholder="views"
+          value={videos.views}
+        />
+
+        <span
+          className={`${
+            videos.verified ? "bg-blue-600" : "bg-slate-600"
+          } w-40 text-white border-red-700 border-[1px]`}
+          onClick={handleVerified}
+        >
+          {videos.verified ? "verified" : "unverified"}
+        </span>
+
         <button
           className="bg-black w-40 text-white border-red-700 border-[1px]"
           type="submit"
